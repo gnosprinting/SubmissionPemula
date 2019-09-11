@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SubmissionPemula</string>
+    <string name="brand_name">Nama Brand</string>
+    <string name="detail">detail</string>
+    <string name="list">list</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="profile_name">MUHAMMAD GINANJAR(hexacore)</string>
+    <string name="profile_mail">anjar.hexacore@gmail.com</string>
+    <string name="profiles">Profiles</string>
+    <string name="namabarang">namabarang</string>
+    <string name="todo">TODO</string>
+</resources>
