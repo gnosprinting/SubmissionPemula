@@ -3,21 +3,16 @@ package com.example.submissionpemula;
 
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -38,7 +33,7 @@ public class ListBrandAdapter extends RecyclerView.Adapter<ListBrandAdapter.List
 
     @Override
     public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
-        Brand brand = listBrand.get(position);
+        final Brand brand = listBrand.get(position);
         Glide.with(holder.itemView.getContext())
                 .load(brand.getPhoto())
                 .into(holder.imgPhoto);
@@ -47,16 +42,20 @@ public class ListBrandAdapter extends RecyclerView.Adapter<ListBrandAdapter.List
         holder.tvName.setText(brand.getName());
         holder.tvDetail.setText(brand.getDetail());
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " +
 //                        listBrand.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
-//                Intent detail = new Intent(holder.itemView.getContext(),Detail.class);
-//                detail.putExtra(Detail.EXTRA_NAME, listBrand.get(holder.getAdapterPosition()).getName());
-//                detail.putExtra(Detail.EXTRA_DETAIL, listBrand.get(holder.getAdapterPosition()).getDetail());
+                Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
+                intent.putExtra("judul",brand.getName());
+                intent.putExtra("detail",brand.getDetail());
+                intent.putExtra("foto" ,brand.getPhoto());
+
 //                startActivity(detail);
-                    startActivity(new Intent(holder.itemView.getContext(),Detail.class));
+                holder.itemView.getContext().startActivity(intent);
+//                    startActivity(new Intent(holder.itemView.getContext(),DetailActivity.class));
             }
         });
     }

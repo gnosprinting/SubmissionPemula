@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.miProfile:
                 //showProfileView();
-                Intent moveIntent = new Intent(MainActivity.this, Profile.class);
+                Intent moveIntent = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(moveIntent);
                 return true;
             default:
